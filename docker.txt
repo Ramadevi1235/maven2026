@@ -1,0 +1,17 @@
+# Step 1: Use an official base image (e.g., Ubuntu)
+FROM ubuntu:20.04
+
+# Step 2: Install dependencies
+RUN apt-get update && apt-get install -y python3 python3-pip
+
+# Step 3: Set working directory inside the container
+WORKDIR /app
+
+# Step 4: Copy your application files to the container
+COPY . /app
+
+# Step 5: Install Python dependencies (if any)
+RUN pip3 install -r requirements.txt
+
+# Step 6: Define the default command to run your application
+CMD ["python3", "app.py"]
